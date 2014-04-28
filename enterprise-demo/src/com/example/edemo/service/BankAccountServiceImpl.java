@@ -10,7 +10,7 @@ import com.example.edemo.model.BankAccount;
 public class BankAccountServiceImpl implements BankAccountService {
 	private BankAccountDao bankAccountDao;
 	
-	public BankAccountServiceImpl(){
+	public BankAccountServiceImpl() throws DataAccessException{
 		super();
 		this.bankAccountDao = new BankAccountDummyDao();
 	}

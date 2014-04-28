@@ -6,6 +6,6 @@ public interface BankAccountDao{
 
 	public BankAccount findAccount(String sourceAccountNumber) throws DataAccessException;
 
-	public void updateAccount(BankAccount bankAccount);
+	public void updateAccount(BankAccount bankAccount) throws DataAccessException;
 
 }

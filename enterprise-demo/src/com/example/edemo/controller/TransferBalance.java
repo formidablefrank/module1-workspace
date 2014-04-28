@@ -11,18 +11,19 @@ public class TransferBalance {
 
 	public static void main(String[] args) {
 		//business layer is responsible for performing this
-		BankAccountService bankAccountService = new BankAccountServiceImpl();
+		BankAccountService bankAccountService = null;
 		//do we need to make interfaces for our services?
 		//pluggability, we can change technology implementation smoothly
 		//interfaces, technology agnostic
 		
-		String sourceAccountNumber = "121";
+		String sourceAccountNumber = "111";
 		String targetAccountNumber = "222";
 		BigDecimal amountToTransfer = new BigDecimal("1000.00");
 		
 		BankAccount sourceAccount = null;
 		BankAccount targetAccount = null;
 		try {
+			bankAccountService = new BankAccountServiceImpl();
 			bankAccountService.transferFunds(
 					sourceAccountNumber, targetAccountNumber, amountToTransfer);
 			
@@ -35,6 +36,7 @@ public class TransferBalance {
 			System.out.println(targetAccount.getAccountHolder());	// Issa Kappha
 			System.out.println(targetAccount.getBalance());			// 5000.00
 		} catch (DataAccessException e) {
+			e.printStackTrace();
 			System.out.println("Can't proceed to fund transfer; account not found");
 		}
 		

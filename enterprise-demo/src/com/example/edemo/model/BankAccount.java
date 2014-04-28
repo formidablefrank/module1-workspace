@@ -36,5 +36,9 @@ public class BankAccount {
 	public void setAccountNumber(String accountNumber) {
 		this.accountNumber = accountNumber;
 	}
-
+	
+	@Override
+	public String toString(){
+		return this.accountNumber + "|" + this.accountHolder + "|" + this.getBalance().toPlainString();
+	}
 }

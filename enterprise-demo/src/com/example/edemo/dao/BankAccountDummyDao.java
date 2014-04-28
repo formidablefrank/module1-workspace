@@ -1,17 +1,17 @@
 package com.example.edemo.dao;
 
 import java.io.IOException;
-import java.math.BigDecimal;
+import java.util.List;
 
 import com.example.edemo.model.BankAccount;
 
 public class BankAccountDummyDao implements BankAccountDao{
-	private BankAccount[] bankAccounts;
+	private List<BankAccount> bankAccounts;
+	private FileAccess fileAccess;
 	
-	public BankAccountDummyDao(){
-		bankAccounts = new BankAccount[2];
-		bankAccounts[0] = new BankAccount("111","Procopio Pahlpak", new BigDecimal("3000.00"));
-		bankAccounts[1] = new BankAccount("222","Issa Kappha", new BigDecimal("4000.00"));
+	public BankAccountDummyDao() throws DataAccessException{
+		fileAccess = new FileAccess("resources/accounts.txt");
+		bankAccounts = fileAccess.readFile();
 	}
 	
 	@Override
@@ -20,6 +20,12 @@ public class BankAccountDummyDao implements BankAccountDao{
 			if(ba.getAccountNumber().equals(bankAccount.getAccountNumber())){
 				ba.setBalance(bankAccount.getBalance());
 			}
+		}
+		try {
+			fileAccess.writeFile(bankAccounts);
+		} catch (DataAccessException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
 		}
 	}
 
