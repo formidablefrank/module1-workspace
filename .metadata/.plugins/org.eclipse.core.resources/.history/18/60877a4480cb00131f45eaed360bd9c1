@@ -1,0 +1,5 @@
+package com.example.edemo.model;
+
+public class BankAccount {
+
+}

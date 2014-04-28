@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Extract constant &apos;NUMBER_OF_CHIPMUNKS&apos; from expression &apos;3&apos;&#x0A;- Original project: &apos;control-structures&apos;&#x0A;- Constant name: &apos;NUMBER_OF_CHIPMUNKS&apos;&#x0A;- Constant expression: &apos;3&apos;&#x0A;- Declared visibility: &apos;private&apos;" description="Extract constant &apos;NUMBER_OF_CHIPMUNKS&apos;" flags="786432" id="org.eclipse.jdt.ui.extract.constant" input="/src&lt;com.example.controlstructures{Loops.java" name="NUMBER_OF_CHIPMUNKS" qualify="false" replace="false" selection="161 1" stamp="1398147767276" version="1.0" visibility="2"/>
+</session>

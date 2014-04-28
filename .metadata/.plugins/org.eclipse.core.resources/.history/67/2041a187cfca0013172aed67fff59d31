@@ -1,0 +1,27 @@
+package com.example.bankaccount.model;
+
+import java.math.BigDecimal;
+
+public class CurrentAccount extends BankAccount {
+	private String checkbookSeries;
+	
+	public CurrentAccount() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
+	public CurrentAccount(String accountNumber, String branch,
+			AccountHolder accountHolder, BigDecimal balance, String currency) {
+		super(accountNumber, branch, accountHolder, balance, currency);
+		// TODO Auto-generated constructor stub
+	}
+
+	public String getCheckbookSeries() {
+		return checkbookSeries;
+	}
+
+	public void setCheckbookSeries(String checkbookSeries) {
+		this.checkbookSeries = checkbookSeries;
+	}
+	
+}

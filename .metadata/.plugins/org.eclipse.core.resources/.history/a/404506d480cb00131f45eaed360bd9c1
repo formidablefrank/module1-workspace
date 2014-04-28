@@ -1,0 +1,18 @@
+package com.example.edemo.dao;
+
+import com.example.edemo.model.BankAccount;
+
+public class BankAccountDao implements BankAccountExampleDao{
+
+	public BankAccount findAccount(String sourceAccountNumber) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public void updateAccount() {
+		// TODO Auto-generated method stub
+		
+	}
+
+}

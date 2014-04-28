@@ -1,0 +1,36 @@
+package com.example.edemo.dao;
+
+import java.math.BigDecimal;
+
+import com.example.edemo.model.BankAccount;
+
+public class BankAccountDummyDao implements BankAccountDao{
+	private BankAccount[] bankAccounts;
+	
+	public BankAccountDummyDao(){
+		bankAccounts = new BankAccount[2];
+		bankAccounts[0] = new BankAccount("111","Procopio Pahlpak", new BigDecimal("3000.00"));
+		bankAccounts[1] = new BankAccount("222","Issa Kappha", new BigDecimal("4000.00"));
+	}
+	
+	@Override
+	public void updateAccount(BankAccount bankAccount) {
+		for(BankAccount ba: bankAccounts){
+			if(ba.getAccountNumber().equals(bankAccount.getAccountNumber())){
+				ba.setBalance(bankAccount.getBalance());
+			}
+		}
+	}
+
+	@Override
+	public BankAccount findAccount(String sourceAccountNumber) {
+		for(int i = 0; i<bankAccounts.length; i++){
+			if(bankAccounts[i].getAccountNumber().equals(sourceAccountNumber)){
+				return bankAccounts[i];
+				//BankAccount temp = new BankAccount(bankAccounts[i].getAccountNumber(), bankAccounts[i].getAccountHolder(), bankAccounts[i].getBalance());
+				//return temp
+			}
+		}
+		return null;
+	}
+}

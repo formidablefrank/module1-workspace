@@ -1,0 +1,5 @@
+package com.example.edemo.dao;
+
+public interface BankAccountExampleDao {
+	public void updateAccount(BankAccount);
+}

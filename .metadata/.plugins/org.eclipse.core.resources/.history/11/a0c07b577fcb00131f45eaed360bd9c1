@@ -1,0 +1,18 @@
+package com.example.edemo.service;
+
+import java.math.BigDecimal;
+
+public class BankAccountServiceImpl implements BankAccountService {
+
+	@Override
+	public void transferFunds(String sourceAccountNumber,
+			String targetAccountNumber, BigDecimal amountToTransfer) {
+		//check if first account exists (fetch it)
+		//check if second account exists (fetch it)
+		//check if there is enough balance
+		//transfer funds
+		//update first account
+		//update second account
+	}
+
+}

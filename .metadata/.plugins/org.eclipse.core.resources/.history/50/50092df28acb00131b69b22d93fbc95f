@@ -1,0 +1,17 @@
+package com.example.edemo.model;
+
+import java.math.BigDecimal;
+
+public class BankAccount {
+
+	public BigDecimal getBalance() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public void setBalance(BigDecimal subtract) {
+		// TODO Auto-generated method stub
+		
+	}
+
+}

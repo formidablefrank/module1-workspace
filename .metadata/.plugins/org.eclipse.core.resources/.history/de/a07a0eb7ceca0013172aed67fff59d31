@@ -1,0 +1,71 @@
+package com.example.bankaccount.model;
+import java.math.*;
+
+public class BankAccount {
+	private String accountNumber;
+	private String branch;
+	private AccountHolder accountHolder;
+	private BigDecimal balance;
+	private String currency;
+	
+	private class AccountHolder{
+		private String address;
+		private String personalData;
+		
+		public String getAddress() {
+			return address;
+		}
+		public String getPersonalData() {
+			return personalData;
+		}
+		public void setAddress(String address) {
+			this.address = address;
+		}
+		public void setPersonalData(String personalData) {
+			this.personalData = personalData;
+		}
+		
+	}
+
+	public String getAccountNumber() {
+		return accountNumber;
+	}
+
+	public String getBranch() {
+		return branch;
+	}
+
+	public AccountHolder getAccountHolder() {
+		return accountHolder;
+	}
+
+	public BigDecimal getBalance() {
+		return balance;
+	}
+
+	public String getCurrency() {
+		return currency;
+	}
+
+	public void setAccountNumber(String accountNumber) {
+		this.accountNumber = accountNumber;
+	}
+
+	public void setBranch(String branch) {
+		this.branch = branch;
+	}
+
+	public void setAccountHolder(AccountHolder accountHolder) {
+		this.accountHolder = accountHolder;
+	}
+
+	public void setBalance(BigDecimal balance) {
+		this.balance = balance;
+	}
+
+	public void setCurrency(String currency) {
+		this.currency = currency;
+	}
+	
+	
+}

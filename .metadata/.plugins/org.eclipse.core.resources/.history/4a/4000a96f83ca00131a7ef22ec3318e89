@@ -1,0 +1,21 @@
+package com.example.helloworld;
+
+public class Primitives {
+	public static void main(String[] args) {
+//		short x = 0;
+//		int i = 12345;
+//		int j = (int) (x+i);
+//		x = x + i;
+//		System.out.println();
+//		System.out.println(j);
+		
+//		Object s = "a";
+//		String t = "b";
+//		s = s+t;
+//		System.out.println(s);
+		
+		int START = Integer.MAX_VALUE;
+		long x = START-1;
+		System.out.println(-10%2==1);
+	}
+}

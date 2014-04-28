@@ -1,0 +1,10 @@
+package com.example.edemo.service;
+
+import java.math.BigDecimal;
+
+public interface BankAccountService {
+
+	void transferFunds(String sourceAccountNumber, String targetAccountNumber,
+			BigDecimal amountToTransfer);
+
+}

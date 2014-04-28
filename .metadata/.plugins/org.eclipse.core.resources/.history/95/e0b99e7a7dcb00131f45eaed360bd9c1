@@ -1,0 +1,12 @@
+package com.example.edemo.controller;
+
+public class TransferBalance {
+
+	public static void main(String[] args) {
+		//business layer is responsible for performing this
+		BankAccountService bankAccountService = new BankAccountServiceImpl();
+		//do we need to make interfaces for our services?
+		//
+	}
+
+}

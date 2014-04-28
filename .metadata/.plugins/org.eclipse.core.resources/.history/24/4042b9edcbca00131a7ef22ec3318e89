@@ -1,0 +1,14 @@
+package com.example.bankaccount.model;
+import java.math.*;
+
+public class BankAccount {
+	private String accountNumber;
+	private String branch;
+	private AccountHolder accountHolder;
+	private BigDecimal balance;
+	private String currency;
+	
+	private class AccountHolder{
+		
+	}
+}
