@@ -2,6 +2,9 @@ package com.example.edemo.dao;
 
 public class DataAccessException extends Exception {
 
+	/**
+	 * 
+	 */
 	private static final long serialVersionUID = 3286294449322913089L;
 
 	public DataAccessException() {
