@@ -9,7 +9,7 @@ import com.orangeandbronze.jbc.shoppingcart.model.InventoryProduct;
 public interface ShoppingService {
 	List<InventoryProduct> getInventory();
 	List<CartProduct> getCart();
-	void buy(int productNo, int quantity);
+	void buy(int productNo, int quantity) throws ShoppingServiceException;
 	boolean isInventoryEmpty();
 	boolean isCartEmpty();
 	void updateDatabase();

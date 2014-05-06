@@ -68,7 +68,15 @@ public class ShoppingDaoImpl implements ShoppingDao {
 	@Override
 	public void updateCart(List<CartProduct> collection)
 			throws ShoppingDaoException {
-		// TODO Auto-generated method stub
-		
+		try (BufferedWriter writer = new BufferedWriter(new FileWriter(INVENTORY_FILE))){
+			for(CartProduct ip: collection){
+				Product pro = ip.getProduct();
+				String temp = String.format("%s\t%d\t%s", pro.getName(), ip.getQuantity(), pro.getPrice().toPlainString());
+				writer.write(temp);
+				writer.newLine();
+			}
+		} catch (IOException e){
+			throw new ShoppingDaoException("ERROR: Writing file failed");
+		}
 	}
 }
