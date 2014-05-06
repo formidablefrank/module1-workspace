@@ -5,6 +5,10 @@
 		<item value="491" key="DIALOG_HEIGHT"/>
 		<item value="1|Sans|9.0|0|GTK|1|" key="DIALOG_FONT_NAME"/>
 	</section>
+	<section name="ExtractTempWizard">
+		<item value="true" key="replaceOccurrences"/>
+		<item value="false" key="declareFinal"/>
+	</section>
 	<section name="RefactoringWizard.preview">
 		<item value="578" key="height"/>
 		<item value="645" key="width"/>

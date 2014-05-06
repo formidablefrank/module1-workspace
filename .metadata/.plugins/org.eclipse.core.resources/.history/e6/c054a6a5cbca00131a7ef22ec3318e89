@@ -1,7 +1,0 @@
-package com.example.bankaccount.model;
-
-public class BankAccount {
-	private String accountNumber
-	private String branch
-	
-}

@@ -1,7 +1,0 @@
-package com.example.edemo.dao;
-
-import com.example.edemo.model.BankAccount;
-
-public interface BankAccountExampleDao {
-	void updateAccount(BankAccount bankAccount);
-}

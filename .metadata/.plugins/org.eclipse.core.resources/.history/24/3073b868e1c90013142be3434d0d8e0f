@@ -1,7 +1,0 @@
-package com.example.controlstructures;
-
-public class Loops {
-	public static void main(String[] args) {
-		
-	}
-}

@@ -1,5 +1,0 @@
-package com.example.edemo.dao;
-
-public interface BankAccountDao {
-
-}

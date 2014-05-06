@@ -36,7 +36,6 @@ public class TransferBalance {
 			System.out.println(targetAccount.getAccountHolder());	// Issa Kappha
 			System.out.println(targetAccount.getBalance());			// 5000.00
 		} catch (DataAccessException e) {
-			e.printStackTrace();
 			System.out.println("Can't proceed to fund transfer; account not found");
 		}
 		
