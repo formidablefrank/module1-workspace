@@ -2,14 +2,8 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/RemoteSystemsTempFiles/RemoteSystemsTempFiles.iml" filepath="$PROJECT_DIR$/RemoteSystemsTempFiles/RemoteSystemsTempFiles.iml" />
       <module fileurl="file://$PROJECT_DIR$/ShoppingCart2/ShoppingCart2.iml" filepath="$PROJECT_DIR$/ShoppingCart2/ShoppingCart2.iml" />
-      <module fileurl="file://$PROJECT_DIR$/bank-account/bank-account.iml" filepath="$PROJECT_DIR$/bank-account/bank-account.iml" />
-      <module fileurl="file://$PROJECT_DIR$/collections-demo/collections-demo.iml" filepath="$PROJECT_DIR$/collections-demo/collections-demo.iml" />
-      <module fileurl="file://$PROJECT_DIR$/control-structures/control-structures.iml" filepath="$PROJECT_DIR$/control-structures/control-structures.iml" />
       <module fileurl="file://$PROJECT_DIR$/enterprise-demo/enterprise-demo.iml" filepath="$PROJECT_DIR$/enterprise-demo/enterprise-demo.iml" />
-      <module fileurl="file://$PROJECT_DIR$/hello-world/hello-world.iml" filepath="$PROJECT_DIR$/hello-world/hello-world.iml" />
-      <module fileurl="file://$PROJECT_DIR$/streams-demo/streams-demo.iml" filepath="$PROJECT_DIR$/streams-demo/streams-demo.iml" />
     </modules>
   </component>
 </project>
