@@ -4,6 +4,7 @@ import java.math.BigDecimal;
 import java.util.List;
 
 import com.orangeandbronze.jbc.shoppingcart.dao.ShoppingDao;
+import com.orangeandbronze.jbc.shoppingcart.dao.ShoppingDaoException;
 import com.orangeandbronze.jbc.shoppingcart.dao.ShoppingDaoImpl;
 import com.orangeandbronze.jbc.shoppingcart.model.CartProduct;
 import com.orangeandbronze.jbc.shoppingcart.model.InventoryProduct;
@@ -16,14 +17,13 @@ public class ShoppingServiceImpl implements ShoppingService {
 	}
 
 	@Override
-	public List<InventoryProduct> getInventory() {
+	public List<InventoryProduct> getInventory() throws ShoppingDaoException {
 		return shoppingDao.getInventory();
 	}
 
 	@Override
-	public List<CartProduct> getCart() {
-		// TODO Auto-generated method stub
-		return null;
+	public List<CartProduct> getCart() throws ShoppingDaoException {
+		return shoppingDao.getCart();
 	}
 
 	@Override
