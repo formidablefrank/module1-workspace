@@ -68,7 +68,7 @@ public class ShoppingDaoImpl implements ShoppingDao {
 	@Override
 	public void updateCart(List<CartProduct> collection)
 			throws ShoppingDaoException {
-		try (BufferedWriter writer = new BufferedWriter(new FileWriter(INVENTORY_FILE))){
+		try (BufferedWriter writer = new BufferedWriter(new FileWriter(CART_FILE))){
 			for(CartProduct ip: collection){
 				Product pro = ip.getProduct();
 				String temp = String.format("%s\t%d\t%s", pro.getName(), ip.getQuantity(), pro.getPrice().toPlainString());
