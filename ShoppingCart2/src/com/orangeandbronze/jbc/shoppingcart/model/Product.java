@@ -79,8 +79,6 @@ public class Product {
 	}
 	@Override
 	public String toString() {
-		return "Product [name=" + name + ", productNo=" + productNo + ", info="
-				+ info + ", price=" + price + ", hashCode()=" + hashCode()
-				+ "]";
+		return productNo + " " + name + " " + price.toPlainString() + " " + info; 
 	}
 }

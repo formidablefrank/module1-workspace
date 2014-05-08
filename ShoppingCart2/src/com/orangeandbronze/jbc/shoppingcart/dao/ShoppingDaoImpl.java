@@ -16,13 +16,53 @@ import com.orangeandbronze.jbc.shoppingcart.model.Product;
 public class ShoppingDaoImpl implements ShoppingDao {
 	private final String CART_FILE = "resources/cart";
 	private final String INVENTORY_FILE = "resources/inventory";
+	
+	private List get(String filename) throws ShoppingDaoException{
+		List list = filename.equals(INVENTORY_FILE) ? new ArrayList<InventoryProduct>() : new ArrayList<CartProduct>();
+		try (BufferedReader reader = new BufferedReader(new FileReader(filename))){
+			int productNo = 1;
+			while(reader.ready()){
+				String temp[] = reader.readLine().split("\\s+");
+				Product newProduct = new Product(temp[0], productNo, "", new BigDecimal(temp[2]));
+				Object newItem = null;
+				if (filename.equals(INVENTORY_FILE)){
+					newItem = new InventoryProduct(newProduct, Integer.parseInt(temp[1]));
+				}
+				else{
+					newItem = new CartProduct(newProduct, Integer.parseInt(temp[1]));
+				}
+				list.add(newItem);
+				productNo++;
+			}
+		} catch(IOException e){
+			throw new ShoppingDaoException("ERROR: Reading file failed");
+		}
+		return list;
+	}
+	
+	@Override
+	public List<InventoryProduct> getInventory() throws ShoppingDaoException{
+		return get(INVENTORY_FILE);
+	}
 
 	@Override
-	public void updateInventory(List<InventoryProduct> collection) throws ShoppingDaoException{
-		try (BufferedWriter writer = new BufferedWriter(new FileWriter(INVENTORY_FILE))){
-			for(InventoryProduct ip: collection){
-				Product pro = ip.getProduct();
-				String temp = String.format("%s\t%d\t%s", pro.getName(), ip.getQuantity(), pro.getPrice().toPlainString());
+	public List<CartProduct> getCart() throws ShoppingDaoException {
+		return get(CART_FILE);
+	}
+	
+	private void update(List<?> collection, String filename) throws ShoppingDaoException{
+		try (BufferedWriter writer = new BufferedWriter(new FileWriter(filename))){
+			for(Object item: collection){
+				Product pro = null;
+				String temp = null;
+				if(item instanceof InventoryProduct){
+					pro = ((InventoryProduct) item).getProduct();
+					temp = String.format("%s\t%d\t%s", pro.getName(), ((InventoryProduct) item).getQuantity(), pro.getPrice().toPlainString());
+				}
+				if(item instanceof CartProduct){
+					pro = ((CartProduct) item).getProduct();
+					temp = String.format("%s\t%d\t%s", pro.getName(), ((CartProduct) item).getQuantity(), pro.getPrice().toPlainString());
+				}
 				writer.write(temp);
 				writer.newLine();
 			}
@@ -30,53 +70,15 @@ public class ShoppingDaoImpl implements ShoppingDao {
 			throw new ShoppingDaoException("ERROR: Writing file failed");
 		}
 	}
-	
-	@Override
-	public List<InventoryProduct> getInventory() throws ShoppingDaoException{
-		List<InventoryProduct> list = new ArrayList<InventoryProduct>();
-		try (BufferedReader reader = new BufferedReader(new FileReader(INVENTORY_FILE))){
-			int productNo = 1;
-			while(reader.ready()){
-				String temp[] = reader.readLine().split("\\s+");
-				Product newProduct = new Product(temp[0], productNo, "", new BigDecimal(temp[2]));
-				InventoryProduct newInventoryProduct = new InventoryProduct(newProduct, Integer.parseInt(temp[1]));
-				list.add(newInventoryProduct);
-			}
-		} catch(IOException e){
-			throw new ShoppingDaoException("ERROR: Reading file failed");
-		}
-		return list;
-	}
 
 	@Override
-	public List<CartProduct> getCart() throws ShoppingDaoException {
-		List<CartProduct> list = new ArrayList<CartProduct>();
-		try (BufferedReader reader = new BufferedReader(new FileReader(CART_FILE))){
-			int productNo = 1;
-			while(reader.ready()){
-				String temp[] = reader.readLine().split("\\s+");
-				Product newProduct = new Product(temp[0], productNo, "", new BigDecimal(temp[2]));
-				CartProduct newCartProduct = new CartProduct(newProduct, Integer.parseInt(temp[1]));
-				list.add(newCartProduct);
-			}
-		} catch(IOException e){
-			throw new ShoppingDaoException("ERROR: Reading file failed");
-		}
-		return list;
+	public void updateInventory(List<InventoryProduct> collection) throws ShoppingDaoException{
+		update(collection, INVENTORY_FILE);
 	}
 
 	@Override
 	public void updateCart(List<CartProduct> collection)
 			throws ShoppingDaoException {
-		try (BufferedWriter writer = new BufferedWriter(new FileWriter(CART_FILE))){
-			for(CartProduct ip: collection){
-				Product pro = ip.getProduct();
-				String temp = String.format("%s\t%d\t%s", pro.getName(), ip.getQuantity(), pro.getPrice().toPlainString());
-				writer.write(temp);
-				writer.newLine();
-			}
-		} catch (IOException e){
-			throw new ShoppingDaoException("ERROR: Writing file failed");
-		}
+		update(collection, CART_FILE);
 	}
 }

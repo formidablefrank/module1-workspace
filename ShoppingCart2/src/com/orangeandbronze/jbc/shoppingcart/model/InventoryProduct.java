@@ -24,7 +24,7 @@ public class InventoryProduct {
 	}
 	@Override
 	public String toString() {
-		return "InventoryProduct [product=" + product + ", quantity=" + quantity
+		return "[product=" + product + ", quantity=" + quantity
 				+ "]";
 	}
 	@Override

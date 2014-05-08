@@ -23,7 +23,7 @@ public class CartProduct {
 	}
 	@Override
 	public String toString() {
-		return "CartProduct [product=" + product + ", quantity=" + quantity
+		return "[product=" + product + ", quantity=" + quantity
 				+ "]";
 	}
 	@Override
